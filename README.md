@@ -1,2 +1,1 @@
-# practice1
-testing 
+day=03-06-26
