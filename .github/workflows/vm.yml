@@ -31,6 +31,14 @@ jobs:
       - name: Check Terraform Version
         run: terraform version
 
+      - name: Debug Repository
+        run: |
+          pwd
+          echo "Files in current directory:"
+          ls -la
+          echo "Terraform files:"
+          find . -maxdepth 2 -type f -name "*.tf" -print
+
       - name: Terraform Init
         run: terraform init
 
