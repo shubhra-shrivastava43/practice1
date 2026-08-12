@@ -37,15 +37,18 @@ jobs:
           echo "Files in current directory:"
           ls -la
           echo "Terraform files:"
-          find . -maxdepth 2 -type f -name "*.tf" -print
+          find ./environment/dev -maxdepth 1 -type f -name "*.tf" -print
 
       - name: Terraform Init
+        working-directory: ./environment/dev
         run: terraform init
 
       - name: Terraform Format Check
+        working-directory: ./environment/dev
         run: terraform fmt -check
 
       - name: Terraform Validate
+        working-directory: ./environment/dev
         run: terraform validate
 
       - name: Setup TFLint
@@ -55,9 +58,11 @@ jobs:
         run: tflint --version
 
       - name: Initialize TFLint
+        working-directory: ./environment/dev
         run: tflint --init
 
       - name: TFLint
+        working-directory: ./environment/dev
         run: tflint
 
       - name: Trivy IaC Scan
@@ -70,7 +75,9 @@ jobs:
           severity: 'CRITICAL,HIGH'
 
       - name: Terraform Plan
+        working-directory: ./environment/dev
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
+        working-directory: ./environment/dev
         run: terraform apply -auto-approve tfplan
