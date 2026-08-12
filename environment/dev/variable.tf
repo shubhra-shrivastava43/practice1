@@ -1,28 +1,28 @@
 variable "datarg" {
-  
+
 }
 
 variable "datavnet" {
-  
+
 }
 
 variable "datasubnet" {
-  
+
 }
 
-variable "nsg"{
-    
+variable "nsg" {
+
 }
 variable "public_ip" {
-  
+
 }
 
 variable "VM" {
-  
+
 }
 
 variable "kv" {
-  
+
 }
 
 # variable"username"{
@@ -30,5 +30,5 @@ variable "kv" {
 # }
 
 # variable"password"{
-    
+
 # }
